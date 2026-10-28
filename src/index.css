@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+
+  /* Palette (use as bg-primary, text-olive, border-line, etc.) */
+  --color-primary: #E87524;       /* orange: primary actions, active accents */
+  --color-primary-soft: #FCEBDD;  /* light orange highlight */
+  --color-olive: #687442;         /* selected room, floor, destination */
+  --color-olive-soft: #EEF0E5;    /* light olive highlight */
+  --color-grey: #74766B;          /* inactive controls, supporting details */
+  --color-canvas: #F8F8F5;        /* page background */
+  --color-surface: #FFFFFF;       /* cards, inputs, map canvas */
+  --color-ink: #20211D;           /* headings, main text, key icons */
+  --color-ink-soft: #64655D;      /* secondary text */
+  --color-muted: #64655D;         /* labels, hints */
+  --color-line: #E2E2DA;          /* borders */
+}
+
+@layer base {
+  body {
+    background: var(--color-canvas);
+    color: var(--color-ink);
+  }
+
+  /* Strong keyboard focus on every control */
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 2px;
+  }
+
+  /* Clear disabled state for any future disabled buttons */
+  button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}
